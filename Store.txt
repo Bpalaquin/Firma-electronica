@@ -1,0 +1,32 @@
+El store se utilizará para gestionar el estado de la aplicación.
+
+
+JavaScript
+import Vue from 'vue';
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
+
+const state = {
+  document: null,
+};
+
+const mutations = {
+  SET_DOCUMENT(state, document) {
+    state.document = document;
+  },
+};
+
+const actions = {
+  fetchDocument({ commit }) {
+    // Fetch the document from the backend
+    const document = {
+      // ... document data
+    };
+
+    commit('SET_DOCUMENT', document);
+  },
+};
+
+const store = new Vuex.Store({
+  state,

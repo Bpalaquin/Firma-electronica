@@ -1,0 +1,36 @@
+El componente Signer se encargará de permitir al usuario firmar el documento.
+
+HTML
+<template>
+  <div class="signer">
+    <h2>Firmar documento</h2>
+    <input type="text" v-model="signature" placeholder="Firma electrónica">
+    <button @click="signDocument">Firmar</button>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    document: Object,
+  },
+  data() {
+    return {
+      signature: '',
+    };
+  },
+  methods: {
+    signDocument() {
+      // Sign the document using the signature
+      this.$emit('signed');
+    },
+  },
+};
+</script>
+
+<style scoped>
+.signer {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+</style>

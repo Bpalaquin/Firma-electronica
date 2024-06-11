@@ -1,0 +1,21 @@
+El router se utilizará para gestionar las rutas de la aplicación.
+
+
+JavaScript
+import Vue from 'vue';
+import Router from 'vue-router';
+
+Vue.use(Router);
+
+const routes = [
+  {
+    path: '/',
+    component: () => import('@/App.vue'),
+  },
+];
+
+const router = new Router({
+  routes,
+});
+
+export default router;

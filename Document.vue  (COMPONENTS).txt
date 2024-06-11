@@ -1,0 +1,24 @@
+El componente Document.vue se encargará de mostrar el contenido del documento.
+
+HTML
+<template>
+  <div class="document">
+    <h2>{{ document.title }}</h2>
+    <p>{{ document.content }}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    document: Object,
+  },
+};
+</script>
+
+<style scoped>
+.document {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+</style>
