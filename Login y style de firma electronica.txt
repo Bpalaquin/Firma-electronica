@@ -1,4 +1,14 @@
-HTML
+Se agregó lang="ts" en la etiqueta <script> para indicar que el script está escrito en TypeScript.
+
+Se importó defineComponent desde vue, que es necesario para definir componentes en Vue 3 con TypeScript.
+
+Se creó una interfaz LoginData para tipar los datos enviados en la petición POST.
+
+Se especificaron los tipos de retorno para la función data() y las propiedades dentro de ella.
+
+Se utilizó la interfaz LoginData para tipar el objeto data en el método handleSubmit.
+
+
 <template>
   <div class="login-container">
     <div class="login-form">
@@ -26,11 +36,17 @@ HTML
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import axios from 'axios';
 
-export default {
-  data() {
+interface LoginData {
+  email: string;
+  password: string;
+}
+
+export default defineComponent({
+  data(): { email: string; password: string; rememberMe: boolean } {
     return {
       email: '',
       password: '',
@@ -39,23 +55,23 @@ export default {
   },
   methods: {
     handleSubmit() {
-      const data = {
+      const data: LoginData = {
         email: this.email,
         password: this.password,
       };
 
       axios.post('/login', data)
-        .then(response => {
+       .then(response => {
           // Manejar la respuesta exitosa del servidor
           console.log('Inicio de sesión exitoso');
         })
-        .catch(error => {
+       .catch(error => {
           // Manejar el error de inicio de sesión
           console.error('Error al iniciar sesión:', error);
         });
     },
   },
-};
+});
 </script>
 
 <style scoped>
