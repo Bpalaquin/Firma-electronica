@@ -1,0 +1,46 @@
+COMPONENTE
+
+SolicitudFirma.vue
+
+
+HTML
+<template>
+  <div class="solicitud-firma">
+    <h1>Solicitud de firma</h1>
+    <p>Has recibido una solicitud para firmar un documento. Pulsa el botón para revisarlo y completar el proceso.</p>
+    <Documento :documento="documento" />
+    <BotonEmpezar @click="iniciarFirma" />
+  </div>
+</template>
+
+<script>
+import Documento from './Documento.vue';
+import BotonEmpezar from './BotonEmpezar.vue';
+
+export default {
+  components: {
+    Documento,
+    BotonEmpezar,
+  },
+  data() {
+    return {
+      documento: {
+        nombre: 'certificado_emtelco.pdf',
+        estadoFirma: 'Sin firmar',
+      },
+    };
+  },
+  methods: {
+    iniciarFirma() {
+      // Implementar la lógica para iniciar el proceso de firma
+      console.log('Iniciando firma...');
+    },
+  },
+};
+</script>
+
+<style scoped>
+.solicitud-firma {
+  text-align: center;
+}
+</style>

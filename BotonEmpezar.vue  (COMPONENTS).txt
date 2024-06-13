@@ -1,0 +1,29 @@
+COMPONENTE
+
+BotonEmpezar.vue
+
+HTML
+<template>
+  <button class="boton-empezar">Empezar</button>
+</template>
+
+<script>
+export default {
+  methods: {
+    empezar() {
+      // Implementar la lógica para emitir el evento de inicio de firma
+      this.$emit('click');
+    },
+  },
+};
+</script>
+
+<style scoped>
+.boton-empezar {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+</style>
